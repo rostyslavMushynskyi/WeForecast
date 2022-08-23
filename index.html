@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>Weather forecast</title>
+  </head>
+  <body>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="close">×</div>
+          <h2 class="modal_title">Oops, an error occurred</h2>
+        </div>
+        <div class="modal-body">
+          <p class="modal_text">Помилка</p>
+        </div>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="container">
+        <div class="flex_m">
+          <section class="sidebar">
+            <form class="search" id="searchForm">
+              <button class="geoButton" id="GeoButton">
+                <svg
+                  xmlns="https://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                  class="h-5 w-5 text-gray-400"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  ></path>
+                </svg>
+              </button>
+              <input
+                type="text"
+                placeholder="Search for place"
+                class="input_search outline-none"
+                id="searchCity"
+              />
+              <button class="button_Submit" id="buttonSubmit">
+                <svg
+                  xmlns="https://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                  class="h-5 w-5 text-black text-white"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  ></path>
+                </svg>
+              </button>
+            </form>
+            <div class="error_block_c" id="errorCode"></div>
+            <span class="loader" style="display: none" id="loader"></span>
+            <div class="current_forecast" id="forecast"></div>
+          </section>
+          <div class="rightside">
+            <header class="header">
+              <div class="header_header">
+                <div class="title">
+                  <p class="text-2xl font-black">WeForecast</p>
+                </div>
+                <div class="header_buttons">
+                  <div class="temp_buttons">
+                    <label class="temp_button_1">
+                      <input
+                        checked
+                        class="coupledegree"
+                        type="radio"
+                        name="degrees"
+                        id="degreeC"
+                      />
+                      <p class="degree_c">°C</p>
+                    </label>
+                    <label class="temp_button_2">
+                      <input
+                        class="coupledegree"
+                        type="radio"
+                        name="degrees"
+                        id="degreeF"
+                      />
+                      <p class="degree_c">°F</p>
+                    </label>
+                  </div>
+                  <button class="theme_button" id="themeButton">
+                    <svg
+                      xmlns="https://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                      class="w-6 h-6 hidden dark_block"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </header>
+            <section class="weekforecast">
+              <div class="weekforecast_block" id="weather"></div>
+            </section>
+            <section class="todays_highlights">
+              <div class="highlights_block" id="highlights">
+                <h3 class="highlights_title">Today's Highlights</h3>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="/JavaScript/script.js"></script>
+    <script src="/JavaScript/sidebar.js"></script>
+  </body>
+</html>
