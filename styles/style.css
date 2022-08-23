@@ -408,7 +408,34 @@ p::selection {
 }
 
 .dark_block {
-  display: block;
+  display: none;
+}
+
+.moon_icon {
+  fill: var(--text-color);
+  display: none;
+  height: 24px;
+  width: 24px;
+  display: none;
+}
+
+.sentence_help {
+  background-color: var(--background-color);
+  height: 100px;
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--text-color);
+  margin-top: 15px;
+  border-radius: 200px;
+}
+
+.help_text {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--text-color);
+  text-align: center;
 }
 
 .theme_button {

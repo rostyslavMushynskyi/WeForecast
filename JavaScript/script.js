@@ -50,12 +50,22 @@ function handleApiRequest(q, units) {
 
 const switchMode = document.querySelector("#themeButton");
 
+if (theme.className === "dark") {
+  sunIcon.style.display = "block";
+} else {
+  moonIcon.style.display = "block";
+}
+
 switchMode.onclick = function () {
   if (theme.className === "dark") {
     theme.className = "light";
+    moonIcon.style.display = "block";
+    sunIcon.style.display = "none";
     localStorage.setItem("theme.className", theme.className);
   } else {
     theme.className = "dark";
+    moonIcon.style.display = "none";
+    sunIcon.style.display = "block";
     localStorage.setItem("theme.className", theme.className);
   }
 };
