@@ -1,5 +1,12 @@
 const weatherList = document.querySelector("#weather");
 
+let theme = document.documentElement;
+let themeChange = theme.className;
+
+if (localStorage.getItem("theme.className")) {
+  theme.className = localStorage.getItem("theme.className");
+}
+
 function createCard(dt, temp, tempMin, tempMax, icon, description) {
   const date = new Date(dt * 1000);
   const day = new Intl.DateTimeFormat("en", { weekday: "long" }).format(date);
@@ -44,12 +51,12 @@ function handleApiRequest(q, units) {
 const switchMode = document.querySelector("#themeButton");
 
 switchMode.onclick = function () {
-  let theme = document.documentElement;
-
   if (theme.className === "dark") {
     theme.className = "light";
+    localStorage.setItem("theme.className", theme.className);
   } else {
     theme.className = "dark";
+    localStorage.setItem("theme.className", theme.className);
   }
 };
 
