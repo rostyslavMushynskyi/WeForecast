@@ -626,6 +626,9 @@ p::selection {
   .help_text {
     font-size: 1rem;
   }
+  .modal_title {
+    text-align: center;
+  }
 }
 
 /* Modal */

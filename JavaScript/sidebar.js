@@ -229,10 +229,12 @@ function requestWeather() {
       console.log(dataCurrent);
       if (dataCurrent.message) {
         if (dataCurrent.message === "city not found") {
+          q = "";
           console.log(dataCurrent.message);
           openModal("City not found");
           return;
         } else if (dataCurrent.message === "Nothing to geocode") {
+          q = "";
           console.log(dataCurrent.message);
           openModal("Enter the name of the city");
           return;
