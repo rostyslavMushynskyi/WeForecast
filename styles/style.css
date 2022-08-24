@@ -625,6 +625,7 @@ p::selection {
   }
   .help_text {
     font-size: 1rem;
+    margin: 0 25px;
   }
   .modal_title {
     text-align: center;
