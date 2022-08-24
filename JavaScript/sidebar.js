@@ -226,7 +226,6 @@ function requestWeather() {
     })
     .then(function (dataCurrent) {
       helpBlock.style.display = "none";
-      console.log(dataCurrent);
       if (dataCurrent.message) {
         if (dataCurrent.message === "city not found") {
           q = "";
@@ -298,7 +297,7 @@ function requestWeatherGeo(lat, lon) {
       return resp.json();
     })
     .then(function (dataCurrent) {
-      console.log(dataCurrent);
+      q = dataCurrent.name;
       const highlightHTML = createhighlights(
         dataCurrent.wind.speed,
         dataCurrent.sys.sunrise,
