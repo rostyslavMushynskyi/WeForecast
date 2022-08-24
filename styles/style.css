@@ -588,6 +588,9 @@ p::selection {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
+  .sentence_help {
+    width: auto;
+  }
 }
 
 @media (max-width: 600px) {
