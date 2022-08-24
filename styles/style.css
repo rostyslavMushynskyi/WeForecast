@@ -620,6 +620,12 @@ p::selection {
   .container {
     padding: 0;
   }
+  .sentence_help {
+    width: auto;
+  }
+  .help_text {
+    font-size: 1rem;
+  }
 }
 
 /* Modal */
