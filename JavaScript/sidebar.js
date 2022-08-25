@@ -10,7 +10,9 @@ const degreeChangeF = document.querySelector("#degreeF");
 let loader = document.querySelector("#loader");
 let elHTML = document.querySelector("#forecast");
 
-let q = "Lviv";
+let resultQ = 0;
+
+let q = "";
 let units = "metric";
 
 if (localStorage.getItem("units")) {
@@ -128,7 +130,7 @@ function createCurrent(dt, temp, icon, description, city) {
     <p class="current_degree">${temp}°</p>
   </div>
   <div class="current_city_date">
-    <h1 class="city_title">${city}</h1>
+    <h1 class="city_title" id="cityCurrent">${city}</h1>
     <div class="date_text">
       <h2 class="current_day">${day},</h2>
       <p class="current_month">${arraymonth[month]} ${monthDay}</p>
@@ -185,15 +187,6 @@ formCitySumbit.onsubmit = function (e) {
   errorCode.style.display = "none";
 };
 
-const citySearch = document.querySelector("#buttonSubmit");
-citySearch.onclick = myClick;
-function myClick() {
-  errorCode.style.display = "none";
-  q = document.querySelector("#searchCity").value;
-  helpBlock.style.display = "none";
-  requestWeather();
-}
-
 degreeChangeF.oninput = degreeClickF;
 degreeChangeC.oninput = degreeClickC;
 
@@ -202,7 +195,6 @@ function degreeClickC() {
     units = "metric";
     localStorage.setItem("units", units);
     requestWeather();
-    GeoFunction();
   }
 }
 
@@ -211,7 +203,6 @@ function degreeClickF() {
     units = "imperial";
     localStorage.setItem("units", units);
     requestWeather();
-    GeoFunction();
   }
 }
 
@@ -226,6 +217,7 @@ function requestWeather() {
     })
     .then(function (dataCurrent) {
       helpBlock.style.display = "none";
+      console.log(dataCurrent);
       if (dataCurrent.message) {
         if (dataCurrent.message === "city not found") {
           q = "";
@@ -285,7 +277,10 @@ const geoClick = document.querySelector("#GeoButton");
 geoClick.onclick = GeoFunction;
 function GeoFunction() {
   navigator.geolocation.getCurrentPosition(success, error);
+  console.log(dataCurrent.name);
 }
+
+console.log(dataCurrent.name);
 
 function requestWeatherGeo(lat, lon) {
   handleApiRequestGeo(lat, lon, units);
@@ -298,6 +293,7 @@ function requestWeatherGeo(lat, lon) {
     })
     .then(function (dataCurrent) {
       q = dataCurrent.name;
+      console.log(dataCurrent);
       const highlightHTML = createhighlights(
         dataCurrent.wind.speed,
         dataCurrent.sys.sunrise,
