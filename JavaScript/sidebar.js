@@ -277,10 +277,7 @@ const geoClick = document.querySelector("#GeoButton");
 geoClick.onclick = GeoFunction;
 function GeoFunction() {
   navigator.geolocation.getCurrentPosition(success, error);
-  console.log(dataCurrent.name);
 }
-
-console.log(dataCurrent.name);
 
 function requestWeatherGeo(lat, lon) {
   handleApiRequestGeo(lat, lon, units);

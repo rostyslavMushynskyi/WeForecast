@@ -11,8 +11,25 @@ function createCard(dt, temp, tempMin, tempMax, icon, description) {
   const date = new Date(dt * 1000);
   const day = new Intl.DateTimeFormat("en", { weekday: "long" }).format(date);
   const time = date.toLocaleTimeString("ua");
+  const month = date.getMonth();
+  const monthDay = date.getDate();
+  const arraymonth = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   return `<div class="card_day">
-    <p class="forecast_day">${day}</p>
+    <p class="forecast_day">September,${monthDay}</p>
     <p class="time_card">${time}</p>
     <img src="https://openweathermap.org/img/wn/${icon}.png" alt="">
     <p class="description_text">${description}</p>
