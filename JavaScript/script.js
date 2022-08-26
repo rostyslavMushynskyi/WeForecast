@@ -29,7 +29,7 @@ function createCard(dt, temp, tempMin, tempMax, icon, description) {
   ];
 
   return `<div class="card_day">
-    <p class="forecast_day">September,${monthDay}</p>
+    <p class="forecast_day">${arraymonth[month]},${monthDay}</p>
     <p class="time_card">${time}</p>
     <img src="https://openweathermap.org/img/wn/${icon}.png" alt="">
     <p class="description_text">${description}</p>
